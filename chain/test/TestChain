@@ -1,0 +1,21 @@
+package chain.test;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import chain.Filter;
+import chain.FilterChain;
+import chain.FilterChainImpl;
+import chain.FilterManager;
+
+public class TestMain {
+	
+	public static void main(String[] args) throws Exception {
+		List<Filter> filters=new ArrayList<>();
+		FilterManager.loadFilter(filters,"one");
+		FilterManager.loadFilter(filters,"two");
+		FilterChain chain=new FilterChainImpl(filters);
+		chain.doSomething("zhangdan");
+	}
+
+}
